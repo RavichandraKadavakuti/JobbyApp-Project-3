@@ -1,0 +1,23 @@
+.navbar-logo {
+  width: 100px !important;
+}
+@media screen and (min-width: 768px) {
+  .navbar-logo {
+    width: 150px !important;
+  }
+}
+i {
+  font-size: 20px;
+}
+@media screen and (min-width: 992px) {
+  i {
+    font-size: 32px;
+  }
+}
+.nav-link {
+  color: black !important;
+}
+.active {
+  color: #0d6efd !important;
+  border-bottom: 2px solid black !important ;
+}

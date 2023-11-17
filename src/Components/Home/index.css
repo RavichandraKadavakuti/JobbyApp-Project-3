@@ -1,0 +1,11 @@
+.home-page {
+  min-height: 100vh;
+  background-image: url("https://assets.ccbp.in/frontend/react-js/home-sm-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+@media screen and (min-width: 768px) {
+  .home-page {
+    background-image: url("https://assets.ccbp.in/frontend/react-js/home-lg-bg.png");
+  }
+}
