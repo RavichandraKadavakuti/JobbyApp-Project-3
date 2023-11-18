@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { TailSpin } from "react-loader-spinner";
 
-const token = Cookies.get("jwt_token");
+let token = Cookies.get("jwt_token");
 
 export const InitialFetchAPiState = {
   INITIAL: "Initial",
@@ -93,7 +93,26 @@ export const LoadingVieData = () => (
 );
 
 export const FailureviewData = (msg) => (
-  <div className="d-flex justify-content-center my-5">
+  <div className="d-flex flex-column align-items-center text-center justify-content-center my-5">
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+      alt="failure"
+      className="img-fluid"
+    />
     <b>{msg}</b>
+  </div>
+);
+
+export const NoJobsFound = (msg) => (
+  <div className="d-flex flex-column align-items-center text-center my-5">
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+      alt="no jobs"
+      className="img-fluid"
+    />
+    <h3>No jobs found.</h3>
+    <p>
+      We could not found any <b>{msg}</b> jobs. Try any filters
+    </p>
   </div>
 );

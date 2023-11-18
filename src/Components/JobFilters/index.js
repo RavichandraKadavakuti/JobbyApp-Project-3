@@ -1,7 +1,23 @@
-import React from "react";
-import { employmentTypesList , salaryRangesList} from "../../Utilities";
+import React, { useContext } from "react";
+import { employmentTypesList, salaryRangesList } from "../../Utilities";
+import Context from "../../Context";
 
 const JobFilters = () => {
+  const {
+    employmentType,
+    salaryPackage,
+    setEmploymentTypeValue,
+    setSalaryPackageValue,
+  } = useContext(Context);
+
+  const onclickEmployments = (event, value) => {
+    setEmploymentTypeValue(event, value);
+  };
+
+  const onclickSalary = (value) => {
+    setSalaryPackageValue(value);
+  };
+
   return (
     <div className="container">
       <div className="row">
@@ -15,6 +31,13 @@ const JobFilters = () => {
                     type="checkbox"
                     id={each.label}
                     className="form-check-input"
+                    value={employmentType}
+                    onClick={(event) =>
+                      onclickEmployments(
+                        event.target.checked,
+                        each.employmentTypeId
+                      )
+                    }
                   />
                   <label htmlFor={each.label} className="form-check-label">
                     {each.label}
@@ -36,6 +59,8 @@ const JobFilters = () => {
                     name="salary"
                     id={each.label}
                     className="form-check-input"
+                    value={salaryPackage}
+                    onClick={() => onclickSalary(each.salaryRangeId)}
                   />
                   <label htmlFor={each.label} className="form-check-label">
                     {each.label}

@@ -15,7 +15,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <ul className="navbar-nav d-flex flex-row justify-content-between align-items-center col-6 col-sm-4">
+        <ul className="navbar-nav d-flex flex-row justify-content-between align-items-center col-6 col-sm-4 col-xl-3">
           <li className="nav-item">
             <NavLink exact to="/" className="nav-link">
               <i className="fa-solid fa-house"></i>
