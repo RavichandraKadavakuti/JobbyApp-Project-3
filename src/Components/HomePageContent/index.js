@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import "./index.css";
 
 const HomePageContent = () => {
   return (
@@ -12,7 +13,7 @@ const HomePageContent = () => {
             reviews,Find the job that fits ablities and potential.
           </p>
           <Link to="/jobs">
-            <button type="button" className="btn btn-light">
+            <button type="button" className="btn btn-light find-jobs-btn">
               Find Jobs
             </button>
           </Link>

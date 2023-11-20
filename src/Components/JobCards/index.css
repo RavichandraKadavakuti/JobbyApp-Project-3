@@ -1,3 +1,34 @@
+.job-card {
+  height: 95vh;
+  overflow: auto;
+}
+
+/* Customize scrollbar */
+.job-card::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+/* Track (background) */
+.job-card::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+  border-radius: 6px; /* Rounded corners */
+}
+
+/* Handle (thumb) */
+.job-card::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners */
+  height: 100px;
+}
+
+/* Handle on hover */
+.job-card::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change color on hover */
+}
+
 .star {
-  color: goldenrod ;
+  color: goldenrod;
+}
+.hover:hover {
+  background-color: whitesmoke;
 }

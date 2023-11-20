@@ -12,6 +12,8 @@ import "./index.css";
 
 import Context from "../../Context";
 
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 const JobCards = () => {
   const { salaryPackage, employmentType, serachInput } = useContext(Context);
   const [fetchState, setFetchState] = useState(InitialFetchAPiState.INITIAL);
@@ -46,50 +48,55 @@ const JobCards = () => {
 
   const successView = () => {
     return (
-      <ul>
-        {jobsCardDeatils.length > 0 &&
-          jobsCardDeatils.map((each) => (
-            <li key={each.id} className="m-2">
-              <div className="border border-dark rounded p-2">
-                <div className="d-flex align-items-center">
-                  <div className="col-3 col-lg-2">
-                    <img
-                      src={each.companyLogoUrl}
-                      alt={each.id}
-                      className="img-fluid"
-                    />
-                  </div>
-                  <div className="ms-2">
-                    <h6>{each.title}</h6>
-                    <div className="d-flex align-items-center my-3">
-                      <i className="fa-solid fa-star star me-2"></i>
-                      <span>{each.rating}</span>
+      <div className="job-card p-0">
+        <ul className="col-12">
+          {jobsCardDeatils.length > 0 &&
+            jobsCardDeatils.map((each) => (
+              <li
+                key={each.id}
+                className="m-2 hover border border-primary rounded p-2"
+              >
+                <Link className="text-dark" to={`/job-details/${each.id}`}>
+                  <div className="d-flex align-items-center">
+                    <div className="col-3 col-lg-2">
+                      <img
+                        src={each.companyLogoUrl}
+                        alt={each.id}
+                        className="img-fluid"
+                      />
+                    </div>
+                    <div className="ms-2">
+                      <h6>{each.title}</h6>
+                      <div className="d-flex align-items-center my-3">
+                        <i className="fa-solid fa-star star me-2"></i>
+                        <span>{each.rating}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="d-flex justify-content-between my-3">
-                  <div className="d-flex align-items-center me-2 col-sm-3">
-                    <i className="fa-solid fa-location-dot me-1"></i>
-                    <span>{each.location}</span>
+                  <div className="d-flex justify-content-between my-3">
+                    <div className="d-flex align-items-center me-2 col-sm-3">
+                      <i className="fa-solid fa-location-dot me-1"></i>
+                      <span>{each.location}</span>
+                    </div>
+                    <div className="d-flex align-items-center col-sm-3">
+                      <i className="fa-solid fa-suitcase me-1"></i>
+                      <span>{each.employmentType}</span>
+                    </div>
+                    <div className="flex-grow-1 d-flex justify-content-end">
+                      <span>{each.packagePerAnnum}</span>
+                    </div>
                   </div>
-                  <div className="d-flex align-items-center col-sm-3">
-                    <i className="fa-solid fa-suitcase me-1"></i>
-                    <span>{each.employmentType}</span>
+                  <hr />
+                  <div>
+                    <h5>Description</h5>
+                    <p>{each.jobDescription}</p>
                   </div>
-                  <div className="flex-grow-1 d-flex justify-content-end">
-                    <span>{each.packagePerAnnum}</span>
-                  </div>
-                </div>
-                <hr />
-                <div>
-                  <h5>Description</h5>
-                  <p>{each.jobDescription}</p>
-                </div>
-              </div>
-            </li>
-          ))}
-        {jobsCardDeatils < 1 && NoJobsFound(serachInput)}
-      </ul>
+                </Link>
+              </li>
+            ))}
+          {jobsCardDeatils < 1 && NoJobsFound(serachInput)}
+        </ul>
+      </div>
     );
   };
 

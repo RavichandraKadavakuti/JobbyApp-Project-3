@@ -17,9 +17,9 @@ const JobsPage = () => {
     <div className="container">
       <div className="row">
         <Navbar />
-        <div className="job-page bg-secondary-subtle p-2 my-3 rounded">
+        <div className="job-page bg-secondary-subtle p-2">
           <div className="d-lg-flex">
-            <div className="col-lg-4">
+            <div className="col-lg-4 d-flex flex-column align-items-lg-center justify-content-lg-center">
               <div className="my-3 d-lg-none">
                 <input
                   type="search"
@@ -35,12 +35,12 @@ const JobsPage = () => {
               <hr />
             </div>
             <div className="border-lg p-2 col-lg-8">
-              <div className="d-none d-lg-block col-8  mx-auto my-3">
+              <div className="d-none d-lg-block col-8 mx-auto my-3">
                 <input
                   type="search"
                   placeholder="search"
-                  className="form-control"
                   value={serachInput}
+                  className="form-control"
                   onChange={onchangeSearch}
                 />
               </div>

@@ -1,11 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./index.css";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
+import Cookies from "js-cookie";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const onclickLogout = () => {
+    Cookies.remove("jwt_token");
+    const { history } = props;
+    history.replace("/login");
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg bg-light p-3">
+    <nav className="navbar navbar-expand-lg bg-light">
       <div className="container">
         <Link to="/">
           <img
@@ -27,9 +36,37 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li className="nav-item  nav-link">
-            <button type="button" className="btn border-0">
-              <i className="fa-solid fa-right-from-bracket"></i>
-            </button>
+            <Popup
+              modal
+              closeOnDocumentClick={false}
+              trigger={
+                <button type="button" className="btn border-0">
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                </button>
+              }
+            >
+              {(close) => (
+                <div className="d-flex flex-column align-items-center text-center">
+                  <h6>Are you confirm to Logout?</h6>
+                  <div className="d-flex justify-content-around col-12 mt-5">
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={onclickLogout}
+                    >
+                      Yes
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-warning"
+                      onClick={close}
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              )}
+            </Popup>
           </li>
         </ul>
       </div>
@@ -37,4 +74,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -1,0 +1,6 @@
+.find-jobs-btn:hover {
+  background-color: orange !important;
+  width: 120px;
+  font-weight: bold;
+  border: none;
+}

@@ -33,10 +33,7 @@ const JobFilters = () => {
                     className="form-check-input"
                     value={employmentType}
                     onClick={(event) =>
-                      onclickEmployments(
-                        event.target.checked,
-                        each.employmentTypeId
-                      )
+                      onclickEmployments(event, each.employmentTypeId)
                     }
                   />
                   <label htmlFor={each.label} className="form-check-label">
