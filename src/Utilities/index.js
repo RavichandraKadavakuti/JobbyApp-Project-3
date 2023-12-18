@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
 import { TailSpin } from "react-loader-spinner";
 
-let token = Cookies.get("jwt_token");
 
 export const InitialFetchAPiState = {
   INITIAL: "Initial",
@@ -67,6 +66,8 @@ export const CallLoginApi = async (path, data) => {
 };
 
 export const CallGetApi = async (path) => {
+  let token = Cookies.get("jwt_token");
+
   try {
     const url = `https://apis.ccbp.in/${path}`;
     const options = {
